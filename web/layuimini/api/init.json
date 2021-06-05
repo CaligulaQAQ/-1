@@ -1,0 +1,204 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "page/welcome-1.html?t=1"
+  },
+  "logoInfo": {
+    "title": "小区管理系统",
+    "image": "images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "常规管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "主页模板",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "title": "主页一",
+              "href": "page/welcome-1.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "小区管理",
+          "href": "",
+          "icon": "fa fa-window-maximize",
+          "target": "_self",
+          "child": [{
+            "title": "小区列表",
+            "href": "page/community.html",
+            "icon": "fa fa-gears",
+            "target": "_self"
+          }]
+        },
+        {
+          "title": "房产管理",
+          "href": "",
+          "icon": "fa fa-gears",
+          "target": "_self",
+          "child": [{
+            "title": "房产管理",
+            "href": "page/house.html",
+            "icon": "fa fa-gears",
+            "target": "_self"
+          },
+            {
+              "title": "栋数管理",
+              "href": "page/build.html",
+              "icon": "fa fa-gears",
+              "target": "_self"
+            }]
+        },
+        {
+          "title": "业务信息管理",
+          "href": "",
+          "icon": "fa fa-file-text",
+          "target": "_self",
+          "child": [{
+            "title":  "人员管理",
+            "href": "page/people.html",
+            "icon": "fa fa-list-alt",
+            "target": "_self"
+          },
+            {
+              "title": "车辆管理",
+              "href": "page/car.html",
+              "icon": "fa fa-navicon",
+              "target": "_self"
+            },{
+              "title": "宠物管理",
+              "href": "page/pet.html",
+              "icon": "fa fa-navicon",
+              "target": "_self"
+            }]
+        },
+        {
+          "title": "停车位管理",
+          "href": "",
+          "icon": "fa fa-calendar",
+          "target": "_self",
+          "child": [
+            {
+              "title": "车位管理",
+              "href": "page/park.html",
+              "icon": "fa fa-list-alt",
+              "target": "_self"
+            },
+            {
+              "title": "车位使用管理",
+              "href": "page/parkuse.html",
+              "icon": "fa fa-navicon",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "服务管理",
+          "href": "",
+          "icon": "fa fa-flag-o",
+          "target": "_self",
+          "child": [
+            {
+              "title": "活动管理",
+              "href": "page/act.html",
+              "icon": "fa fa-stumbleupon-circle",
+              "target": "_self"
+            },
+            {
+              "title": "投诉管理",
+              "href": "page/comp.html",
+              "icon": "fa fa-viacoin",
+              "target": "_self"
+            },
+            {
+              "title": "保修管理",
+              "href": "page/repair.html",
+              "icon": "fa fa-tags",
+              "target": "_self"
+            }
+            ,{
+              "title": "信箱管理",
+              "href": "page/mail.html",
+              "icon": "fa fa-tags",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "异常页面",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "title": "404页面",
+              "href": "page/404.html",
+              "icon": "fa fa-hourglass-end",
+              "target": "_self"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "组件管理",
+      "icon": "fa fa-lemon-o",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "图标列表",
+          "href": "page/icon.html",
+          "icon": "fa fa-dot-circle-o",
+          "target": "_self"
+        },
+        {
+          "title": "图标选择",
+          "href": "page/icon-picker.html",
+          "icon": "fa fa-adn",
+          "target": "_self"
+        },
+        {
+          "title": "颜色选择",
+          "href": "page/color-select.html",
+          "icon": "fa fa-dashboard",
+          "target": "_self"
+        },
+        {
+          "title": "下拉选择",
+          "href": "page/table-select.html",
+          "icon": "fa fa-angle-double-down",
+          "target": "_self"
+        },
+        {
+          "title": "文件上传",
+          "href": "page/upload.html",
+          "icon": "fa fa-arrow-up",
+          "target": "_self"
+        },
+        {
+          "title": "富文本编辑器",
+          "href": "page/editor.html",
+          "icon": "fa fa-edit",
+          "target": "_self"
+        },
+        {
+          "title": "省市县区选择器",
+          "href": "page/area.html",
+          "icon": "fa fa-rocket",
+          "target": "_self"
+        }
+      ]
+    }
+  ]
+}

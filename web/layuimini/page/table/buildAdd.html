@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-container" style="margin-top: 1.25rem;">
+    <form class="layui-form" action="" lay-filter="example">
+        <div class="layui-form-item">
+            <label class="layui-form-label">所属小区</label>
+            <div class="layui-input-inline">
+<!--                <input type="text" name="cname" required lay-verify="cno" placeholder="请输入所属小区" autocomplete="off" class="layui-input">-->
+                <select id="cname" name="cname" lay-filter="required" lay-verify="required"  class="select">
+                    <option disabled selected>----请选择小区----</option>
+                </select>
+            </div>
+            <label class="layui-form-label">栋数编号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="buildnumber"  placeholder="请输入栋数编号" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">栋数名称</label>
+            <div class="layui-input-inline">
+<!--                <input type="text" name="buildname"  placeholder="请输入栋数名称" autocomplete="off" class="layui-input">-->
+                <select id="buildname" name="buildname" lay-verify="required"  class="select1">
+                    <option disabled>----请选择楼栋名----</option>
+                </select>
+            </div>
+            <label class="layui-form-label">总户数</label>
+            <div class="layui-input-inline">
+                <input type="number" name="population" placeholder="请输入总户数" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">描述</label>
+            <div class="layui-input-inline">
+                <input type="text" name="discription"  placeholder="请输入描述" autocomplete="off" class="layui-input">
+            </div>
+            <label class="layui-form-label">创建时间</label>
+            <div class="layui-input-inline">
+                <input type="date" name="createtime"  autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script>
+    layui.use(['form','upload'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            upload = layui.upload,
+            $ = layui.$;
+
+        $.ajax({
+            url:"/build?method=sel",
+            type:"GET",
+            success:function (res) {
+                console.log(res);
+                $.each(res,function(index,value){
+                    $("#cname").append("<option value="+value+">"+value+"</option>");
+                });
+                form.render("select");
+            }
+        });
+
+        form.on('select(required)',function(data){
+            console.log(data);
+            $.ajax({
+                url:"/build?method=select",
+                type:"GET",
+                data:{
+                    data:data.value
+                },
+                success:function (res) {
+                    $("#buildname").empty();
+                    $.each(res,function(index,value){
+                        $("#buildname").append("<option value="+value+">"+value+"</option>");
+                        console.log(res[index]);
+                    });
+                    form.render("select");
+                }
+            })
+        });
+
+
+        //监听提交
+        form.on('submit(saveBtn)', function (data) {
+            $.ajax({
+                url:"/build?method=add",
+                data:{
+                    //把json字符串传给后端
+                    info:JSON.stringify(data.field)
+                },
+                type:"POST",
+                complete:function () {
+                    //在父页面中关闭当前页面
+                    var iframeIndex = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(iframeIndex);
+
+                }
+            })
+            var index = layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            }, function () {
+                // 关闭弹出层
+                layer.close(index);
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>
